@@ -1,7 +1,8 @@
+import "./styles.css"
 const  eventEmit = (function(){
     let _events = {};
     
-    const publish = function (type, callBack){
+    const subscribe = function (type, callBack){
         if(_events[type]){
             _events[type].push = callBack;
         }else{
@@ -18,5 +19,5 @@ const  eventEmit = (function(){
         }   
     }
 
-    return {publish, trigger};
+    return {subscribe, trigger};
 })();
