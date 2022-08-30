@@ -60,7 +60,25 @@ table {
      
 }
 
+h1{
+	font-size: 24px;
+	font-weight: bold;
+}
 
+h3{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.large-icon{
+	width: 50px;
+	height: 50px;
+}
+
+.icon{
+	width: 35px;
+	height: 35px;
+}
 body{
 	display: grid;
 	grid-template-rows: max-content 1fr max-content;
@@ -68,9 +86,6 @@ body{
 	grid-template-columns: max-content 1fr;
 }
 
-header{
-	grid-area: 1/2/2/3;	
-}
 
 header, footer{
 	text-align: center;
@@ -79,17 +94,66 @@ header, footer{
 
 }
 
+header{
+	grid-area: 1/2/2/3;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
 footer{
 	grid-area: 3/2/4/3;
 }
 
 nav{
 	grid-area: 1/1/4/2;
-	padding: 1rem;
 	background-color: var(--main-30);
 	color: var(--main-60);
 	width: 300px;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
 }
+
+.topCard, .navCard{
+    display: grid;
+    grid-template-columns: 50px 200px;
+    gap: 10px;
+    padding: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+	width: 100%;
+}
+.topCard{
+	padding-top: 1rem;
+	cursor: auto;
+}
+
+.navCard:hover{
+	border-left: 30px solid green;
+	background-color: #313030;
+}
+
+nav h1{
+	align-self: center;
+}
+
+.project > h1{
+	padding: 20px 0px 10px 10px;
+}
+
+.navCard h3{
+	align-self: center;
+}
+
+nav img{
+	justify-self: center;
+}
+
+
+
+
 
 .content{
 	background-color: var(--main-60);
