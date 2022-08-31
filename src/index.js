@@ -21,3 +21,7 @@ const  eventEmit = (function(){
 
     return {subscribe, trigger};
 })();
+
+document.querySelector('.expandTodo').addEventListener('click', ()=>{
+    document.querySelector('.todo').style.height = '400px';
+})
