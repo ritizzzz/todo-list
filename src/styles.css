@@ -227,9 +227,11 @@ form{
 	margin-top: 50vh;
 	transform: translate(-50%, -50%);
 	display: grid;
-	grid-template-rows: auto;
+	grid-template-rows:repeat(max-content, 1fr);
 	grid-template-columns: max-content max-content;
 	padding: 1rem;
 	border-radius: 5px;
 	gap: 10px;
 }
+
+
