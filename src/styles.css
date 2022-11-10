@@ -219,3 +219,17 @@ nav img{
 	background-color: black;
 	opacity: 0.5;
 }
+
+form{
+	position: absolute;
+	background-color: yellow;
+	margin-left: 50%;
+	margin-top: 50vh;
+	transform: translate(-50%, -50%);
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: max-content max-content;
+	padding: 1rem;
+	border-radius: 5px;
+	gap: 10px;
+}
