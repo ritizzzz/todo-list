@@ -1,8 +1,11 @@
 import "./styles.css";
-import { openOverlay } from "./openOverlay.js";
-import { openForm } from "./openForm.js";
-import { closeForm } from "./closeForm.js";
-import { closeOverlay } from "./closeOverlay.js";
+import { openOverlay } from "./openOverlay";
+import { openForm } from "./openForm";
+import { closeForm } from "./closeForm";
+import { closeOverlay } from "./closeOverlay";
+import {openProjectFormComponents} from "./openProjectForm"
+import { closeProjectFormComponents } from "./closeProjectForm";
+import { addProjectToUI } from "./newProjectUI";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -35,10 +38,29 @@ eventEmit.subscribe("newTaskButtonClicked", openForm);
 eventEmit.subscribe("overlayClicked", closeForm);
 eventEmit.subscribe("overlayClicked", closeOverlay);
 
-document.querySelector(".addTodo").addEventListener("click", () => {
+eventEmit.subscribe("addProjectClicked", openProjectFormComponents);
+eventEmit.subscribe("closeProjectForm", closeProjectFormComponents);
+
+eventEmit.subscribe("addProject", closeProjectFormComponents);
+eventEmit.subscribe("addProject", addProjectToUI);
+
+
+document.querySelector('.addTodo').addEventListener("click", () => {
     eventEmit.trigger("newTaskButtonClicked");
 });
 
 document.querySelector(".overlay").addEventListener("click", ()=> {
     eventEmit.trigger("overlayClicked");
+})
+
+document.querySelector('.openProjectForm').addEventListener('click', ()=>{
+    eventEmit.trigger('addProjectClicked');
+})
+
+document.querySelector('.addProject').addEventListener('click', ()=>{
+    eventEmit.trigger('addProject');
+})
+
+document.querySelector('.cancelProcess').addEventListener('click', ()=>{
+    eventEmit.trigger('closeProjectForm');
 })

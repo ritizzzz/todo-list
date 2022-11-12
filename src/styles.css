@@ -273,8 +273,12 @@ form input[type=button]:hover{
 	grid-template-columns: 1fr 1fr;
 	padding: 5px 18px 5px 18px;
 	gap: 5px;
-	
+	display: none;
 }
+
+
+
+
 
 .projectName{
 	grid-area: 1/1/2/3;
