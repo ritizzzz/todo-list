@@ -218,6 +218,7 @@ nav img{
 	height: 100%;
 	background-color: black;
 	opacity: 0.5;
+	display: none;
 }
 
 form{
@@ -232,6 +233,7 @@ form{
 	padding: 1rem;
 	border-radius: 5px;
 	gap: 10px;
+	display: none;
 }
 
 
