@@ -32,6 +32,7 @@ const  eventEmit = (function(){
     return {subscribe, trigger};
 })();
 
+
 eventEmit.subscribe("newTaskButtonClicked", openOverlay);
 eventEmit.subscribe("newTaskButtonClicked", openForm);
 
