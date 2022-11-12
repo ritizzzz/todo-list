@@ -1,5 +1,5 @@
 function openOverlay(){
-    console.log("overlay has been opened");
+    console.log("overlay is opened");
 }
 
 export {openOverlay};
