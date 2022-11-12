@@ -1,5 +1,6 @@
 function openForm(){
-    document.querySelector('form').style.display = 'block';
+    document.querySelector('.taskForm').style.transition = '0.5s';
+    document.querySelector('.taskForm').style.transform = 'scale(1)'; 
 }
 
 export {openForm}; 

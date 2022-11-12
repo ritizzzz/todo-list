@@ -9,7 +9,7 @@ const  eventEmit = (function(){
     
     const subscribe = function (type, callBack){
         if(_events[type]){
-            _events[type][_events[type].length] = callBack;
+            _events[type].push(callBack);
         }else{
             _events[type] = [callBack];
         }

@@ -28,13 +28,24 @@
                 <h3>This month</h3>
             </div>
         </div>
-        <div class="project">
-            <h1>Projects</h1>
-            <div class="navCard projectCard">
-                <img src="../src/icons/folder.svg" alt="project" class="icon">
-                <h3>Project1</h3>
-            </div>           
-                 
+        <div class="projectContainer">
+            <div class="projects">
+                <h1>Projects</h1>
+                <div class="navCard projectCard">
+                    <img src="../src/icons/folder.svg" alt="project" class="icon">
+                    <h3>Project1</h3>
+                </div>           
+            </div>
+
+            <div class="projectFormContainer">
+                <form action="#" class="projectForm">
+
+                    <input type="text" class="projectName" placeholder="Project Name">
+                    <input type="button" class="addProject" value="ADD">
+                    <input type="button" class="addProject" value="CANCEL">
+
+                </form>
+            </div>
             <div class="navCard">
                 <img src="../src/icons/add.svg" alt="addProject" class="icon">
                 <h3>Add New Project</h3>
@@ -49,13 +60,7 @@
                 <p>Gotta finish by the end of the week</p>
                 <div></div>
                 <img src="../src/icons/delete-empty.svg" alt="deleteTodo" class="icon deleteTodo">
-                <img src="../src/icons/dropdown.svg" alt="expandTodo" class="icon expandTodo">
-                <div class="expanded">
-                    <div class="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, in?
-                    </div>
-                </div>
-                
+                <img src="../src/icons/dropdown.svg" alt="expandTodo" class="icon expandTodo"> 
             </div>
             <div class="addTodo">
                 <img src="../src/icons/add.svg" alt="addProject" class="icon addTodoIcon">
@@ -63,8 +68,9 @@
             </div>
         </div>
     </div>
+
     <div class="overlay"></div>
-    <form action="#">
+    <form action="#" class="taskForm">
         <h3>Add new task</h3>
          <div class="title">
             <label for="title">Title for task:</label>

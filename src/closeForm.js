@@ -1,5 +1,5 @@
 function closeForm(){
-    document.querySelector('form').style.display = 'none';
+    document.querySelector('.taskForm').style.transform = 'scale(0)';
 }
 
 export {closeForm};
