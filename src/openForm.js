@@ -1,5 +1,5 @@
 function openForm(){
-    console.log("Form has been opened");
+    document.querySelector('form').style.display = 'block';
 }
 
 export {openForm}; 

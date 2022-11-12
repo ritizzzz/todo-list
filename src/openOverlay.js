@@ -1,5 +1,5 @@
 function openOverlay(){
-    console.log("overlay is opened");
+    document.querySelector('.overlay').style.display = 'block';
 }
 
 export {openOverlay};
