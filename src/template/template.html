@@ -55,13 +55,16 @@
     <div class="content">
         <div class="containerTodos">
             <h3 class="projectName">Project 1</h3>
-            <div class="todo">
-                <input type="checkbox" class="markDone">
-                <p>Gotta finish by the end of the week</p>
-                <div></div>
-                <img src="../src/icons/delete-empty.svg" alt="deleteTodo" class="icon deleteTodo">
-                <img src="../src/icons/dropdown.svg" alt="expandTodo" class="icon expandTodo"> 
+            <div class="todos">
+                <div class="todo">
+                    <input type="checkbox" class="markDone">
+                    <p class="titleDisplay">Gotta finish by the end of the week</p>
+                    <div></div>
+                    <img src="../src/icons/delete-empty.svg" alt="deleteTodo" class="icon deleteTodo">
+                    <img src="../src/icons/dropdown.svg" alt="expandTodo" class="icon expandTodo"> 
+                </div>
             </div>
+
             <div class="addTodo">
                 <img src="../src/icons/add.svg" alt="addProject" class="icon addTodoIcon">
                 <h3>Add new todo</h3>
@@ -98,7 +101,7 @@
 
         </div>
             
-        <input type="button" value="Add Task">
+        <input type="button" value="Add Task" class="addTask">
     </form>
     <footer>
         <p>Copyright © <script>document.write(" " + new Date().getFullYear() + " ")</script>Ritish Kandel</p>

@@ -6,6 +6,10 @@ import { closeOverlay } from "./closeOverlay";
 import {openProjectFormComponents} from "./openProjectForm"
 import { closeProjectFormComponents } from "./closeProjectForm";
 import { addProjectToUI } from "./newProjectUI";
+import { taskClass } from "./taskClass";
+import { taskToStorage } from "./taskToStorage";
+import { taskToUI } from "./taskToUI";
+
 
 const  eventEmit = (function(){
     let _events = {};
@@ -24,7 +28,6 @@ const  eventEmit = (function(){
         if(_events[type]){
             _events[type].forEach(callback => {
                 callback(...args);
-                console.log(_events[type])
             })
         }   
     }
@@ -45,6 +48,11 @@ eventEmit.subscribe("closeProjectForm", closeProjectFormComponents);
 eventEmit.subscribe("addProject", closeProjectFormComponents);
 eventEmit.subscribe("addProject", addProjectToUI);
 
+eventEmit.subscribe("createTask", closeForm);
+eventEmit.subscribe("createTask", closeOverlay);
+eventEmit.subscribe("createTask", taskToUI);
+eventEmit.subscribe("createTask", taskToStorage);
+
 
 document.querySelector('.addTodo').addEventListener("click", () => {
     eventEmit.trigger("newTaskButtonClicked");
@@ -64,4 +72,8 @@ document.querySelector('.addProject').addEventListener('click', ()=>{
 
 document.querySelector('.cancelProcess').addEventListener('click', ()=>{
     eventEmit.trigger('closeProjectForm');
+})
+
+document.querySelector('.addTask').addEventListener("click", ()=>{
+    eventEmit.trigger("createTask", taskClass);
 })

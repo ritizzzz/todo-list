@@ -33,3 +33,4 @@ const taskClass = function(taskId, taskTitle, taskDescription, duedate, priority
     return {getTaskId, getTaskTitle, getTaskDescription, getDueDate, getPriority, getBelongsTo}
 }
 
+export {taskClass}
