@@ -9,6 +9,7 @@ import { addProjectToUI } from "./newProjectUI";
 import { taskClass } from "./taskClass";
 import { taskToStorage } from "./taskToStorage";
 import { taskToUI } from "./taskToUI";
+import { projectClass } from "./projectClass";
 
 
 const  eventEmit = (function(){
