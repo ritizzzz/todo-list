@@ -58,7 +58,6 @@ function taskToUI(taskClass){
     descriptionCont.innerText = description;
 
     todoSlider.appendChild(descriptionCont);
-    // todoSlider.style.display = 'none';
     todo.appendChild(todoSlider);
     
     document.querySelector('.todos').appendChild(todo);
