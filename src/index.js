@@ -10,7 +10,7 @@ import { taskClass } from "./taskClass";
 import { taskToStorage } from "./taskToStorage";
 import { taskToUI } from "./taskToUI";
 import { projectClass } from "./projectClass";
-
+import {addListenerToTodo} from "./addListenerTodo";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -53,6 +53,8 @@ eventEmit.subscribe("createTask", closeForm);
 eventEmit.subscribe("createTask", closeOverlay);
 eventEmit.subscribe("createTask", taskToUI);
 eventEmit.subscribe("createTask", taskToStorage);
+eventEmit.subscribe("createTask", addListenerToTodo);
+
 
 
 document.querySelector('.addTodo').addEventListener("click", () => {
@@ -78,3 +80,4 @@ document.querySelector('.cancelProcess').addEventListener('click', ()=>{
 document.querySelector('.addTask').addEventListener("click", ()=>{
     eventEmit.trigger("createTask", taskClass);
 })
+

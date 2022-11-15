@@ -1,14 +1,14 @@
+let id = 0;
 function taskToUI(taskClass){
     const title = document.querySelector('#title').value;
     const description = document.querySelector('#description').value;
     const dueDate = document.querySelector('#dueDate').value;
     const priority = document.querySelector('#priority').value;
-    console.log(description);
-    console.log(priority);
-    console.log(dueDate);
-
+    
     let todo = document.createElement('div');
     todo.classList.add('todo');
+    todo.setAttribute('data-id', id);
+
     let input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     input.classList.add('markDone');
@@ -35,34 +35,24 @@ function taskToUI(taskClass){
     expandIcon.setAttribute('src', '../src/icons/dropdown.svg');
     expandIcon.setAttribute('alt', 'expandTodo');
     expandIcon.setAttribute('class', 'icon expandTodo');
-
-    let label = document.createElement('label');
-    label.setAttribute('for', 'slideDown')
-
-    label.appendChild(expandIcon);
-
-    let slideDownCheckbox = document.createElement('input');
-    slideDownCheckbox.setAttribute('type', 'checkbox');
-    slideDownCheckbox.setAttribute('id', 'slideDown');
-    slideDownCheckbox.setAttribute('name', 'slideDown');
-    slideDownCheckbox.style.display = 'none';
-
-    todo.appendChild(slideDownCheckbox);;
-    todo.appendChild(label);
-
-
+    expandIcon.setAttribute('id', 'expandTodo' + id);
+    todo.appendChild(expandIcon);
+    
     let todoSlider = document.createElement('div');
-    todoSlider.setAttribute('id', 'todoSlider');
-
-    let descriptionCont =  document.createElement('p');
+    todoSlider.setAttribute('id', "todoSlider"+id)
+    todoSlider.style.gridArea = '2/1/3/6';
+    let descriptionCont = document.createElement('p');
     descriptionCont.innerText = description;
 
     todoSlider.appendChild(descriptionCont);
+    todoSlider.style.display = 'none';
+
     todo.appendChild(todoSlider);
-    
+
+
     document.querySelector('.todos').appendChild(todo);
+    id += 1;
 
 }
-
 
 export {taskToUI};
