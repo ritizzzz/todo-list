@@ -185,7 +185,7 @@ nav img{
 
 .todo{
 	display: grid;
-	grid-template-columns: max-content max-content 1fr max-content max-content;
+	grid-template-columns: max-content max-content 1fr max-content max-content max-content;
 	align-items: center;
 	gap: 10px;
 }
@@ -295,7 +295,7 @@ form input[type=button]:hover{
 	grid-area: 1/1/2/3;
 }
 
-.deleteTodo:hover, .expandTodo:hover{
+.icon:hover{
 	cursor: pointer;
 	filter: invert(19%) sepia(0%) saturate(3712%) hue-rotate(137deg) brightness(82%) contrast(90%);
 }

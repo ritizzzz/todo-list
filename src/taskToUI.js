@@ -23,12 +23,20 @@ function taskToUI(taskClass){
 
     let emptyDiv = document.createElement('div');
     todo.appendChild(emptyDiv);
+
+    let editIcon = document.createElement('img');
+    editIcon.setAttribute('src', '../src/icons/pencil.svg');
+    editIcon.setAttribute('alt', 'editIcon');
+    editIcon.setAttribute('class', 'icon editIcon');
+    editIcon.setAttribute('id', 'editIcon' + id);
+    todo.appendChild(editIcon);
     
+
     let deleteIcon = document.createElement('img');
     deleteIcon.setAttribute('src', '../src/icons/delete-empty.svg');
     deleteIcon.setAttribute('alt', 'deleteTodo');
     deleteIcon.setAttribute('class', 'icon deleteTodo');
-
+    deleteIcon.setAttribute('id', 'deleteIcon' + id);
     todo.appendChild(deleteIcon);
 
     let expandIcon = document.createElement('img');
@@ -38,21 +46,25 @@ function taskToUI(taskClass){
     expandIcon.setAttribute('id', 'expandTodo' + id);
     todo.appendChild(expandIcon);
     
+    
     let todoSlider = document.createElement('div');
     todoSlider.setAttribute('id', "todoSlider"+id)
-    todoSlider.style.gridArea = '2/1/3/6';
+    todoSlider.style.gridArea = '2/1/3/7';
+    
     let descriptionCont = document.createElement('p');
     descriptionCont.innerText = description;
 
+    
+
     todoSlider.appendChild(descriptionCont);
     todoSlider.style.display = 'none';
+
 
     todo.appendChild(todoSlider);
 
 
     document.querySelector('.todos').appendChild(todo);
     id += 1;
-
 }
 
 export {taskToUI};
