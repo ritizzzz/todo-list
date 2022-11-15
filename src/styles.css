@@ -287,6 +287,12 @@ form input[type=button]:hover{
 
 .projectName{
 	grid-area: 1/1/2/3;
+}
 
+#slideDown:checked ~ #todoSlider{
+	display: block;
+}
 
+#todoSlider{
+	display: none;
 }

@@ -3,6 +3,9 @@ function taskToUI(taskClass){
     const description = document.querySelector('#description').value;
     const dueDate = document.querySelector('#dueDate').value;
     const priority = document.querySelector('#priority').value;
+    console.log(description);
+    console.log(priority);
+    console.log(dueDate);
 
     let todo = document.createElement('div');
     todo.classList.add('todo');
@@ -33,9 +36,34 @@ function taskToUI(taskClass){
     expandIcon.setAttribute('alt', 'expandTodo');
     expandIcon.setAttribute('class', 'icon expandTodo');
 
-    todo.appendChild(expandIcon);
+    let label = document.createElement('label');
+    label.setAttribute('for', 'slideDown')
+
+    label.appendChild(expandIcon);
+
+    let slideDownCheckbox = document.createElement('input');
+    slideDownCheckbox.setAttribute('type', 'checkbox');
+    slideDownCheckbox.setAttribute('id', 'slideDown');
+    slideDownCheckbox.setAttribute('name', 'slideDown');
+    slideDownCheckbox.style.display = 'none';
+
+    todo.appendChild(slideDownCheckbox);;
+    todo.appendChild(label);
+
+
+    let todoSlider = document.createElement('div');
+    todoSlider.setAttribute('id', 'todoSlider');
+
+    let descriptionCont =  document.createElement('p');
+    descriptionCont.innerText = description;
+
+    todoSlider.appendChild(descriptionCont);
+    // todoSlider.style.display = 'none';
+    todo.appendChild(todoSlider);
+    
     document.querySelector('.todos').appendChild(todo);
 
 }
+
 
 export {taskToUI};
