@@ -1,36 +1,36 @@
-const taskClass = function(taskId, taskTitle, taskDescription, duedate, priority, belongsTo){
-    const _taskId = taskId;
-    const _taskTitle = taskTitle;
-    const _taskDescription = taskDescription;
-    const _dueDate = duedate;
-    const _priority = priority;
-    const _belongsTo = belongsTo;
+const taskClass = function(taskIdArg, taskTitleArg, taskDescriptionArg, duedateArg, priorityArg, belongsToArg){
+    const taskId = taskIdArg;
+    const taskTitle = taskTitleArg;
+    const taskDescription = taskDescriptionArg;
+    const dueDate = duedateArg;
+    const priority = priorityArg;
+    const belongsTo = belongsToArg;
 
-    const getTaskId = function(){
-        return _taskId;
+    const setTaskId = function(id){
+        taskId = id;
     }
 
-    const getTaskTitle = function(){
-        return _taskTitle;
+    const setTaskTitle = function(title){
+        taskTitle = title;
     }
 
-    const getTaskDescription = function(){
-        return _taskDescription;
+    const setTaskDescription = function(description){
+        taskDescription = description;
     }
 
-    const getDueDate = function(){
-        return _dueDate;
+    const setDueDate = function(date){
+        dueDate = date;
     }
 
-    const getPriority = function(){
-        return _priority;
+    const setPriority = function(priorityEdit){
+        priority = priorityEdit;
     }
 
-    const getBelongsTo = function(){
-        return _belongsTo;
+    const setBelongsTo = function(belongsToEdit){
+        belongsTo = belongsToEdit;
     }
 
-    return {getTaskId, getTaskTitle, getTaskDescription, getDueDate, getPriority, getBelongsTo}
+    return {taskId, taskTitle, taskDescription, dueDate, priority, belongsTo, setTaskId, setTaskTitle, setTaskDescription, setDueDate, setPriority, setBelongsTo}
 }
 
 export {taskClass}
