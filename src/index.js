@@ -12,6 +12,7 @@ import { taskToUI } from "./taskToUI";
 import { projectClass } from "./projectClass";
 import {addListenerToTodo} from "./addListenerTodo";
 import {projectToStorage} from "./projectToStorage";
+import { assignTaskId } from "./assignTaskId";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -80,6 +81,6 @@ document.querySelector('.cancelProcess').addEventListener('click', ()=>{
 })
 
 document.querySelector('.addTask').addEventListener("click", ()=>{
-    eventEmit.trigger("createTask", taskClass);
+    eventEmit.trigger("createTask", assignTaskId(), taskClass);
 })
 

@@ -1,5 +1,7 @@
-function taskToStorage(){
-    console.log("task to storage added");
+
+
+function taskToStorage(taskId, taskClass){
+    
 }
 
 export {taskToStorage};
