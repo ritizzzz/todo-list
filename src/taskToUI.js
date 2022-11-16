@@ -1,5 +1,4 @@
-let id = 0;
-function taskToUI(taskClass){
+function taskToUI(taskId, taskClass){
     const title = document.querySelector('#title').value;
     const description = document.querySelector('#description').value;
     const dueDate = document.querySelector('#dueDate').value;
@@ -7,7 +6,7 @@ function taskToUI(taskClass){
     
     let todo = document.createElement('div');
     todo.classList.add('todo');
-    todo.setAttribute('data-id', id);
+    todo.setAttribute('data-id', taskId);
 
     let input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
@@ -28,7 +27,7 @@ function taskToUI(taskClass){
     editIcon.setAttribute('src', '../src/icons/pencil.svg');
     editIcon.setAttribute('alt', 'editIcon');
     editIcon.setAttribute('class', 'icon editIcon');
-    editIcon.setAttribute('id', 'editIcon' + id);
+    editIcon.setAttribute('id', 'editIcon' + taskId);
     todo.appendChild(editIcon);
     
 
@@ -36,19 +35,19 @@ function taskToUI(taskClass){
     deleteIcon.setAttribute('src', '../src/icons/delete-empty.svg');
     deleteIcon.setAttribute('alt', 'deleteTodo');
     deleteIcon.setAttribute('class', 'icon deleteTodo');
-    deleteIcon.setAttribute('id', 'deleteIcon' + id);
+    deleteIcon.setAttribute('id', 'deleteIcon' + taskId);
     todo.appendChild(deleteIcon);
 
     let expandIcon = document.createElement('img');
     expandIcon.setAttribute('src', '../src/icons/dropdown.svg');
     expandIcon.setAttribute('alt', 'expandTodo');
     expandIcon.setAttribute('class', 'icon expandTodo');
-    expandIcon.setAttribute('id', 'expandTodo' + id);
+    expandIcon.setAttribute('id', 'expandTodo' + taskId);
     todo.appendChild(expandIcon);
     
     
     let todoSlider = document.createElement('div');
-    todoSlider.setAttribute('id', "todoSlider"+id)
+    todoSlider.setAttribute('id', "todoSlider"+taskId)
     todoSlider.classList.add('todoSlider');
     todoSlider.style.gridArea = '2/1/3/7';
     
@@ -77,7 +76,6 @@ function taskToUI(taskClass){
 
 
     document.querySelector('.todos').appendChild(todo);
-    id += 1;
 }
 
 export {taskToUI};
