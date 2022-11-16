@@ -48,15 +48,31 @@ function taskToUI(taskClass){
     
     
     let todoSlider = document.createElement('div');
-    todoSlider.setAttribute('id', "todoSlider"+id)
+    todoSlider.setAttribute('id', 'todoSlider'+id)
+    todoSlider.setAttribute('class', 'todoSlider');
     todoSlider.style.gridArea = '2/1/3/7';
+
+
+
     
     let descriptionCont = document.createElement('p');
     descriptionCont.innerText = description;
+    descriptionCont.classList.add('descriptionCont');
 
-    
+    let priorityCont = document.createElement('p');
+    priorityCont.innerText = priority;
+    priorityCont.classList.add('priorityCont');
+
+    let dueDateCont = document.createElement('p');
+    dueDateCont.innerText = `Duedate: ${dueDate}`;
+    dueDateCont.classList.add('dueDateCont');
+
+    todoSlider.style.padding = '0px 5px';
 
     todoSlider.appendChild(descriptionCont);
+    todoSlider.appendChild(priorityCont);
+    todoSlider.appendChild(dueDateCont);
+
     todoSlider.style.display = 'none';
 
 

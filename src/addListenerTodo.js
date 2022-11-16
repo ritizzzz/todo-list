@@ -5,7 +5,7 @@ function addListenerToTodo(){
         event.target.style.transition = '0.3s';
         const display = document.querySelector(`#todoSlider${id}`).style.display;
         if(display === 'none'){
-            document.querySelector(`#todoSlider${id}`).style.display = 'block';
+            document.querySelector(`#todoSlider${id}`).style.display = 'grid';
             event.target.style.transform = 'rotate(-180deg)';
         }else{
             document.querySelector(`#todoSlider${id}`).style.display = 'none';

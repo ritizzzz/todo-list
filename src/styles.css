@@ -299,3 +299,25 @@ form input[type=button]:hover{
 	cursor: pointer;
 	filter: invert(19%) sepia(0%) saturate(3712%) hue-rotate(137deg) brightness(82%) contrast(90%);
 }
+
+.todoSlider{
+	grid-template-columns: max-content 1fr max-content;
+	grid-template-rows: 1fr 1fr;
+	row-gap: 5px;
+}
+
+.descriptionCont{
+	grid-area: 1/1/2/4;
+}
+
+.priorityCont{
+	grid-area: 2/1/3/2;
+	border: 1px solid black;
+	padding: 5px 10px;
+	align-self: center;
+}
+
+.dueDateCont{
+	grid-area: 2/3/3/4;
+	align-self: center;
+}
