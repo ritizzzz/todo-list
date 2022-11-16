@@ -11,6 +11,7 @@ import { taskToStorage } from "./taskToStorage";
 import { taskToUI } from "./taskToUI";
 import { projectClass } from "./projectClass";
 import {addListenerToTodo} from "./addListenerTodo";
+import {projectToStorage} from "./projectToStorage";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -48,6 +49,7 @@ eventEmit.subscribe("closeProjectForm", closeProjectFormComponents);
 
 eventEmit.subscribe("addProject", closeProjectFormComponents);
 eventEmit.subscribe("addProject", addProjectToUI);
+eventEmit.subscribe("addProject", projectToStorage);
 
 eventEmit.subscribe("createTask", closeForm);
 eventEmit.subscribe("createTask", closeOverlay);
@@ -70,7 +72,7 @@ document.querySelector('.openProjectForm').addEventListener('click', ()=>{
 })
 
 document.querySelector('.addProject').addEventListener('click', ()=>{
-    eventEmit.trigger('addProject');
+    eventEmit.trigger('addProject', projectClass);
 })
 
 document.querySelector('.cancelProcess').addEventListener('click', ()=>{

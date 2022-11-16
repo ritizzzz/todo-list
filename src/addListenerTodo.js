@@ -1,4 +1,3 @@
-let id = 0;
 function addListenerToTodo(){
     document.querySelector(`#expandTodo${id}`).addEventListener('click', ()=>{
         let id = event.target.getAttribute('id').slice(-1);
