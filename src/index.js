@@ -13,7 +13,8 @@ import { projectClass } from "./projectClass";
 import {addListenerToTodo} from "./addListenerTodo";
 import {projectToStorage} from "./projectToStorage";
 import { assignTaskId } from "./assignTaskId";
-import { returnAllTasks } from "./returnAllTasks";
+import { returnTaskForProject } from "./returnTaskForProject";
+import { populateTask } from "./populateTask";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -59,6 +60,9 @@ eventEmit.subscribe("createTask", taskToUI);
 eventEmit.subscribe("createTask", taskToStorage);
 eventEmit.subscribe("createTask", addListenerToTodo);
 
+eventEmit.subscribe("init", populateTask);
+eventEmit.subscribe("init", addListenerToTodo);
+
 
 
 document.querySelector('.addTodo').addEventListener("click", () => {
@@ -86,6 +90,6 @@ document.querySelector('.addTask').addEventListener("click", ()=>{
 })
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    
+    eventEmit.trigger("init", returnTaskForProject(1));
 })
 
