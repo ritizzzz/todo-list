@@ -5,11 +5,17 @@ function addListenerToTodo(id){
         document.querySelector(`#expandTodo${id}`).addEventListener('click', ()=>{
             toggleSlider(event);
         })
+        document.querySelector(`#deleteIcon${id}`).addEventListener('click', ()=>{
+            deleteTask(event);
+        })
     }else{
         for(let i = 0; i<id.length; i++){
             document.querySelector(`#expandTodo${id[i]['taskId']}`).addEventListener('click', ()=>{
                 toggleSlider(event);
             })  
+            document.querySelector(`#deleteIcon${id[i]['taskId']}`).addEventListener('click', ()=>{
+                deleteTask(event);
+            })
         }
     }
 
@@ -27,6 +33,13 @@ function toggleSlider(event){
             event.target.style.transform = 'rotate(0deg)';
         }
 
+}
+
+function deleteTask(event){
+    let specificId = event.target.getAttribute('id').slice(-1);
+    document.querySelector(`[data-id="${specificId}"]`).remove();
+    
+    localStorage.removeItem(specificId);
 }
 
 export {addListenerToTodo};
