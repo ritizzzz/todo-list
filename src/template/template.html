@@ -71,31 +71,31 @@
         <h3>Add new task</h3>
          <div class="title">
             <label for="title">Title for task:</label>
-            <input type="text" id="title" name="title">
+            <input type="text" id="title" name="title" required>
         </div>    
             
         <div class="description">
             <label for="description">description:</label>
-            <input type="textbox" id="description" name="title">
+            <input type="textbox" id="description" name="title" required>
         </div> 
             
 
         <div class="dueDate">
             <label for="dueDate">Due date:</label>
-            <input type="date" id="dueDate" name="dueDate">
+            <input type="date" id="dueDate" name="dueDate" required>
         </div>
 
         <div class="priority">
             <label for="priority">Priority:</label>
             <select name="priority" id="priority">
-                <option value="can wait">Low</option>
+                <option value="can wait">low</option>
                 <option value="Do it soon!">medium</option>
                 <option value="DO IT NOW!!!">high</option>
             </select>
 
         </div>
             
-        <input type="button" value="Add Task" class="addTask">
+        <input type="submit" value="Add Task" class="addTask">
     </form>
     <footer>
         <p>Copyright © <script>document.write(" " + new Date().getFullYear() + " ")</script>Ritish Kandel</p>

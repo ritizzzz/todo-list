@@ -269,7 +269,7 @@ nav img{
     box-shadow: 3px 3px 3px -3px black;
 }
 
-.taskForm input[type=button]{
+.taskForm input[type=submit]{
 	padding: 5px 5px;
 	width: 100px;
 	align-self: center;
@@ -277,7 +277,7 @@ nav img{
 	border-radius: 5px;
 }
 
-form input[type=button]:hover{
+form input[type=submit]:hover{
 	cursor: pointer;
 }
 

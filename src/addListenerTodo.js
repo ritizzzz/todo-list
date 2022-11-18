@@ -38,7 +38,6 @@ function toggleSlider(event){
 function deleteTask(event){
     let specificId = event.target.getAttribute('id').slice(-1);
     document.querySelector(`[data-id="${specificId}"]`).remove();
-    
     localStorage.removeItem(specificId);
 }
 
