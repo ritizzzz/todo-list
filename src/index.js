@@ -18,6 +18,7 @@ import { populateTask } from "./populateTask";
 import { assignProjectId } from "./assignProjectId";
 import { returnAllProjects } from "./returnAllProjects";
 import { populateProject } from "./populateProject";
+import { addListenerToProject } from "./addListenerToProject";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -56,6 +57,7 @@ eventEmit.subscribe("closeProjectForm", closeProjectFormComponents);
 eventEmit.subscribe("addProject", closeProjectFormComponents);
 eventEmit.subscribe("addProject", addProjectToUI);
 eventEmit.subscribe("addProject", projectToStorage);
+eventEmit.subscribe("addProject", addListenerToProject);
 
 eventEmit.subscribe("createTask", closeForm);
 eventEmit.subscribe("createTask", closeOverlay);
@@ -67,6 +69,8 @@ eventEmit.subscribe("init", populateTask);
 eventEmit.subscribe("init", addListenerToTodo);
 
 eventEmit.subscribe("initProject", populateProject);
+eventEmit.subscribe("initProject", addListenerToProject);
+
 
 
 document.querySelector('.addTodo').addEventListener("click", () => {
@@ -82,7 +86,8 @@ document.querySelector('.openProjectForm').addEventListener('click', ()=>{
 })
 
 document.querySelector('.addProject').addEventListener('click', ()=>{
-    eventEmit.trigger('addProject', assignProjectId(), projectClass);
+    eventEmit.trigger('addProject', assignProjectId(false), projectClass);
+
 })
 
 document.querySelector('.cancelProcess').addEventListener('click', ()=>{
@@ -90,11 +95,18 @@ document.querySelector('.cancelProcess').addEventListener('click', ()=>{
 })
 
 document.querySelector('.addTask').addEventListener("click", ()=>{
-    eventEmit.trigger("createTask", assignTaskId(), taskClass);
+    eventEmit.trigger("createTask", assignTaskId(false), taskClass);
 })
 
 document.addEventListener('DOMContentLoaded', ()=>{
     eventEmit.trigger("init", returnTaskForProject(0));
-    eventEmit.trigger("initProject", returnAllProjects())
+    eventEmit.trigger("initProject", returnAllProjects());
+    console.log(typeof assignProjectId(true))
+    if(typeof assignProjectId(true) === 'object'){
+        projectToStorage(assignProjectId(), projectClass);
+        populateProject(returnAllProjects());
+    }
+    
+    
 })
 

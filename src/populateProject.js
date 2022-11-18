@@ -1,7 +1,7 @@
 
 function populateProject(projectArray){
     for(let i = 0; i<projectArray.length; i++){
-        let projectId = projectArray[i]['projectId'];
+        let projectId = projectArray[i]['id'];
         let projectName = projectArray[i]['projectName'];
 
         let containerDiv = document.createElement('div');
