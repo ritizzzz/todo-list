@@ -1,8 +1,8 @@
-function projectToStorage(projectClass){
+function projectToStorage(projectId, projectClass){
     const projectName = document.querySelector('.projectName').value;    
-    if(!localStorage.getItem(projectName)){
-        let project = projectClass(projectName, []);
-        localStorage.setItem(projectName, JSON.stringify(project))   
+    if(!localStorage.getItem(projectId)){
+        let project = projectClass(projectId, projectName, []);
+        localStorage.setItem(projectName+projectId, JSON.stringify(project))   
     }
 }
 

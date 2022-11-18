@@ -1,11 +1,12 @@
 
-function addProjectToUI(){
+function addProjectToUI(projectId){
     let projectName = document.querySelector('.projectName').value;
     
     let containerDiv = document.createElement('div');
     containerDiv.classList.add('navCard');
     containerDiv.classList.add('projectCard');
-    
+    containerDiv.setAttribute('data-projectId', projectId);
+
     let img = document.createElement('img');
     img.setAttribute('src', '../src/icons/folder.svg');
     img.setAttribute('alt', 'project');

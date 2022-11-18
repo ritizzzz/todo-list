@@ -1,16 +1,10 @@
-const projectClass = function(projectNameArg, projectTasksArg){
+const projectClass = function(idArg, projectNameArg, projectTasksArg){
+    let id = idArg;
     let projectName = projectNameArg;
     let taskArray = projectTasksArg;
 
-    const getProjectName = function(){
-        return projectName;
-    }
 
-    const getTaskList = function(){
-        return taskArray;
-    }
-
-    return {projectName, taskArray, getProjectName, getTaskList}
+    return {id, projectName, taskArray}
 
 }
 

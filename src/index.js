@@ -15,6 +15,9 @@ import {projectToStorage} from "./projectToStorage";
 import { assignTaskId } from "./assignTaskId";
 import { returnTaskForProject } from "./returnTaskForProject";
 import { populateTask } from "./populateTask";
+import { assignProjectId } from "./assignProjectId";
+import { returnAllProjects } from "./returnAllProjects";
+import { populateProject } from "./populateProject";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -63,6 +66,7 @@ eventEmit.subscribe("createTask", addListenerToTodo);
 eventEmit.subscribe("init", populateTask);
 eventEmit.subscribe("init", addListenerToTodo);
 
+eventEmit.subscribe("initProject", populateProject);
 
 
 document.querySelector('.addTodo').addEventListener("click", () => {
@@ -78,7 +82,7 @@ document.querySelector('.openProjectForm').addEventListener('click', ()=>{
 })
 
 document.querySelector('.addProject').addEventListener('click', ()=>{
-    eventEmit.trigger('addProject', projectClass);
+    eventEmit.trigger('addProject', assignProjectId(), projectClass);
 })
 
 document.querySelector('.cancelProcess').addEventListener('click', ()=>{
@@ -90,6 +94,7 @@ document.querySelector('.addTask').addEventListener("click", ()=>{
 })
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    eventEmit.trigger("init", returnTaskForProject(1));
+    eventEmit.trigger("init", returnTaskForProject(0));
+    eventEmit.trigger("initProject", returnAllProjects())
 })
 
