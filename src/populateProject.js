@@ -7,7 +7,7 @@ function populateProject(projectArray){
         let containerDiv = document.createElement('div');
         containerDiv.classList.add('navCard');
         containerDiv.classList.add('projectCard');
-        containerDiv.setAttribute('data-projectId', projectId)
+        containerDiv.setAttribute('data-projectid', projectId)
         
         let img = document.createElement('img');
         img.setAttribute('src', '../src/icons/folder.svg');

@@ -1,14 +1,18 @@
-function addListenerToProject(id){
+function addListenerToProject(id, changeUiOnProjectClick, returnTaskForProject, populateTask){
 
-
+    console.log(id);
+    console.log(typeof id);
     if(typeof id === 'string'){
-        document.querySelector(`[data-projectId='${id}']`).addEventListener('click', ()=>{
-            console.log('hello world');
+        document.querySelector(`[data-projectid='${id}']`).addEventListener('click', ()=>{
+            changeUiOnProjectClick(event);
+            populateTask(returnTaskForProject(parseInt(id)));
         })
     }else{
         for(let i = 0; i<id.length; i++){
-            document.querySelector(`[data-projectId='${id[i]['id']}']`).addEventListener('click', ()=>{
-                console.log('hello world');
+            document.querySelector(`[data-projectid='${id[i]['id']}']`).addEventListener('click', ()=>{
+                changeUiOnProjectClick(event);
+                populateTask(returnTaskForProject(parseInt(id[i]['id'])));
+
             })
         }
     }

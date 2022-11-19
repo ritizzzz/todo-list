@@ -19,6 +19,7 @@ import { assignProjectId } from "./assignProjectId";
 import { returnAllProjects } from "./returnAllProjects";
 import { populateProject } from "./populateProject";
 import { addListenerToProject } from "./addListenerToProject";
+import { changeUiOnProjectClick } from "./changeUI";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -57,7 +58,6 @@ eventEmit.subscribe("closeProjectForm", closeProjectFormComponents);
 eventEmit.subscribe("addProject", closeProjectFormComponents);
 eventEmit.subscribe("addProject", addProjectToUI);
 eventEmit.subscribe("addProject", projectToStorage);
-eventEmit.subscribe("addProject", addListenerToProject);
 
 eventEmit.subscribe("createTask", closeForm);
 eventEmit.subscribe("createTask", closeOverlay);
@@ -69,7 +69,6 @@ eventEmit.subscribe("init", populateTask);
 eventEmit.subscribe("init", addListenerToTodo);
 
 eventEmit.subscribe("initProject", populateProject);
-eventEmit.subscribe("initProject", addListenerToProject);
 
 
 
@@ -87,6 +86,7 @@ document.querySelector('.openProjectForm').addEventListener('click', ()=>{
 
 document.querySelector('.addProject').addEventListener('click', ()=>{
     eventEmit.trigger('addProject', assignProjectId(false), projectClass);
+    addListenerToProject(assignProjectId(true), changeUiOnProjectClick, returnTaskForProject, populateTask)
 
 })
 
@@ -101,7 +101,8 @@ document.querySelector('.addTask').addEventListener("click", ()=>{
 document.addEventListener('DOMContentLoaded', ()=>{
     eventEmit.trigger("init", returnTaskForProject(0));
     eventEmit.trigger("initProject", returnAllProjects());
-    console.log(typeof assignProjectId(true))
+    addListenerToProject(returnAllProjects(), changeUiOnProjectClick, returnTaskForProject, populateTask)
+
     if(typeof assignProjectId(true) === 'object'){
         projectToStorage(assignProjectId(), projectClass);
         populateProject(returnAllProjects());
