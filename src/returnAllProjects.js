@@ -9,7 +9,6 @@ function returnAllProjects(){
            }
         }
     }
-    console.log(projects);
     return projects;
 }
 

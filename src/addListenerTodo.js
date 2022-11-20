@@ -1,6 +1,6 @@
 
 function addListenerToTodo(id){
-
+    
     if(typeof id === 'string'){
         document.querySelector(`#expandTodo${id}`).addEventListener('click', ()=>{
             toggleSlider(event);

@@ -65,8 +65,6 @@ eventEmit.subscribe("createTask", taskToUI);
 eventEmit.subscribe("createTask", taskToStorage);
 eventEmit.subscribe("createTask", addListenerToTodo);
 
-eventEmit.subscribe("init", populateTask);
-eventEmit.subscribe("init", addListenerToTodo);
 
 eventEmit.subscribe("initProject", populateProject);
 
@@ -86,7 +84,7 @@ document.querySelector('.openProjectForm').addEventListener('click', ()=>{
 
 document.querySelector('.addProject').addEventListener('click', ()=>{
     eventEmit.trigger('addProject', assignProjectId(false), projectClass);
-    addListenerToProject(assignProjectId(true), changeUiOnProjectClick, returnTaskForProject, populateTask)
+    addListenerToProject(assignProjectId(true), changeUiOnProjectClick, returnTaskForProject, populateTask, addListenerToTodo)
 
 })
 
@@ -99,15 +97,16 @@ document.querySelector('.addTask').addEventListener("click", ()=>{
 })
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    eventEmit.trigger("init", returnTaskForProject(0));
     eventEmit.trigger("initProject", returnAllProjects());
-    addListenerToProject(returnAllProjects(), changeUiOnProjectClick, returnTaskForProject, populateTask)
+    document.querySelector('.projectNameDisplay').innerText = returnAllProjects()[0]['projectName'];
+    document.querySelector('.addTodo').setAttribute('data-belongsTo', returnAllProjects()[0]['id']);
+    populateTask(returnTaskForProject(parseInt(returnAllProjects()[0]['id'])));
+    addListenerToTodo(returnTaskForProject(parseInt(returnAllProjects()[0]['id'])));
 
     if(typeof assignProjectId(true) === 'object'){
         projectToStorage(assignProjectId(), projectClass);
         populateProject(returnAllProjects());
     }
-    
-    
+    addListenerToProject(returnAllProjects(), changeUiOnProjectClick, returnTaskForProject, populateTask, addListenerToTodo)
+              
 })
-
