@@ -97,16 +97,20 @@ document.querySelector('.addTask').addEventListener("click", ()=>{
 })
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    eventEmit.trigger("initProject", returnAllProjects());
+ 
+    if(typeof assignProjectId(true) === 'object'){
+        projectToStorage(assignProjectId(), projectClass);
+        populateProject(returnAllProjects());
+    }else{
+        eventEmit.trigger("initProject", returnAllProjects());
+    }
+
     document.querySelector('.projectNameDisplay').innerText = returnAllProjects()[0]['projectName'];
     document.querySelector('.addTodo').setAttribute('data-belongsTo', returnAllProjects()[0]['id']);
     populateTask(returnTaskForProject(parseInt(returnAllProjects()[0]['id'])));
     addListenerToTodo(returnTaskForProject(parseInt(returnAllProjects()[0]['id'])));
 
-    if(typeof assignProjectId(true) === 'object'){
-        projectToStorage(assignProjectId(), projectClass);
-        populateProject(returnAllProjects());
-    }
+
     addListenerToProject(returnAllProjects(), changeUiOnProjectClick, returnTaskForProject, populateTask, addListenerToTodo)
               
 })

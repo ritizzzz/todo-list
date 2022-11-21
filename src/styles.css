@@ -228,7 +228,7 @@ nav img{
 	display: none;
 }
 
-.taskForm{
+.taskForm, .taskEditForm{
 	position: absolute;
 	background-color: var(--header-card-background);
 	left: 0;
@@ -248,7 +248,8 @@ nav img{
 }
 
 
-.taskForm > div{
+
+.taskForm > div, .taskEditForm>div{
 	display: flex;
 	flex-direction: column;
     width: 500px;
@@ -263,13 +264,13 @@ nav img{
 	border: 1px solid #E5E7EB;
 }
 
-.taskForm>div>input:focus, form>div>select:focus, .projectName:focus{
+.taskForm>div>input:focus, form>div>select:focus, .projectName:focus, .taskEditForm>div>input:focus{
 	outline: none;
     border: 1px solid rgb(86, 203, 241);
     box-shadow: 3px 3px 3px -3px black;
 }
 
-.taskForm input[type=button]{
+.taskForm input[type=button], .taskEditForm input[type=button]{
 	padding: 5px 5px;
 	width: 100px;
 	align-self: center;

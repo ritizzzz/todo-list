@@ -94,6 +94,36 @@
             
         <input type="button" value="Add Task" class="addTask">
     </form>
+    <form action="#" class="taskEditForm">
+        <h3>Edit task</h3>
+         <div class="titleEdit">
+            <label for="titleEdit">Title for task:</label>
+            <input type="text" id="titleEdit" name="titleEdit" required>
+        </div>    
+            
+        <div class="descriptionEdit">
+            <label for="descriptionEdit">description:</label>
+            <input type="textbox" id="descriptionEdit" name="descriptionEdit" required>
+        </div> 
+            
+
+        <div class="dueDateEdit">
+            <label for="dueDateEdit">Due date:</label>
+            <input type="date" id="dueDateEdit" name="dueDateEdit" required>
+        </div>
+
+        <div class="priorityEdit">
+            <label for="priorityEdit">Priority:</label>
+            <select name="priorityEdit" id="priorityEdit">
+                <option value="can wait">low</option>
+                <option value="Do it soon!">medium</option>
+                <option value="DO IT NOW!!!">high</option>
+            </select>
+
+        </div>
+            
+        <input type="button" value="Edit Task" class="editTask">
+    </form>
     <footer>
         <p>Copyright © <script>document.write(" " + new Date().getFullYear() + " ")</script>Ritish Kandel</p>
 
