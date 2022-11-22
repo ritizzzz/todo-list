@@ -21,6 +21,7 @@ import { populateProject } from "./populateProject";
 import { addListenerToProject } from "./addListenerToProject";
 import { changeUiOnProjectClick } from "./changeUI";
 import {closeEditForm } from "./closeEditForm";
+import { modifyTaskStorage } from "./modifyTaskStorage";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -67,9 +68,17 @@ eventEmit.subscribe("createTask", taskToUI);
 eventEmit.subscribe("createTask", taskToStorage);
 eventEmit.subscribe("createTask", addListenerToTodo);
 
+eventEmit.subscribe("editTask", modifyTaskStorage);
+eventEmit.subscribe("editTask", closeOverlay);
+eventEmit.subscribe("editTask", closeEditForm);
 
 eventEmit.subscribe("initProject", populateProject);
 
+document.querySelector('.editTask').addEventListener('click', ()=>{
+    const projId = document.querySelector('.addTodo').getAttribute('data-belongsto').slice(-1);
+    eventEmit.trigger('editTask', event, taskClass);
+    populateTask(returnTaskForProject(parseInt(projId)));
+})
 
 
 document.querySelector('.addTodo').addEventListener("click", () => {

@@ -321,3 +321,7 @@ form input[type=button]:hover{
 .dueDateCont{
 	grid-area: 2/3/3/4;
 }
+
+.overlay:hover{
+	cursor: pointer;
+}

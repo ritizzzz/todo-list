@@ -1,4 +1,6 @@
 function populateTask( taskArray){
+    document.querySelector('.todos').innerHTML = '';
+    console.log(taskArray);
     for(let i = 0; i<taskArray.length; i++){
         let taskId = taskArray[i]['taskId'];
         let title = taskArray[i]['taskTitle'];

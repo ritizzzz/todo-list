@@ -22,7 +22,7 @@ function addListenerToTodo(id){
                 deleteTask(event);
             })
             document.querySelector(`#editIcon${id[i]['taskId']}`).addEventListener('click', ()=>{
-                openEdit(event);
+                openEdit();
                 populateEdit(event);
             })
         }
@@ -50,12 +50,10 @@ function deleteTask(event){
     localStorage.removeItem(specificId);
 }
 
-function openEdit(event){
-    let specificId = event.target.getAttribute('id').slice(-1);
+function openEdit(){
     document.querySelector('.taskEditForm').style.transition = '0.5s';
     document.querySelector('.taskEditForm').style.transform = 'scale(1)'; 
     document.querySelector('.overlay').style.display = 'block';
-
 }
 
 function populateEdit(event){
@@ -69,6 +67,7 @@ function populateEdit(event){
             option.setAttribute('selected', true);
         }
     })
+    document.querySelector('.editTask').setAttribute('data-editto', specificId);
 }
 
 export {addListenerToTodo};
