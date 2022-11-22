@@ -78,6 +78,7 @@ document.querySelector('.editTask').addEventListener('click', ()=>{
     const projId = document.querySelector('.addTodo').getAttribute('data-belongsto').slice(-1);
     eventEmit.trigger('editTask', event, taskClass);
     populateTask(returnTaskForProject(parseInt(projId)));
+    addListenerToTodo(returnTaskForProject(parseInt(projId)));
 })
 
 
