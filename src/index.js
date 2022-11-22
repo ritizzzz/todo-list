@@ -20,6 +20,7 @@ import { returnAllProjects } from "./returnAllProjects";
 import { populateProject } from "./populateProject";
 import { addListenerToProject } from "./addListenerToProject";
 import { changeUiOnProjectClick } from "./changeUI";
+import {closeEditForm } from "./closeEditForm";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -50,6 +51,7 @@ eventEmit.subscribe("newTaskButtonClicked", openOverlay);
 eventEmit.subscribe("newTaskButtonClicked", openForm);
 
 eventEmit.subscribe("overlayClicked", closeForm);
+eventEmit.subscribe("overlayClicked", closeEditForm);
 eventEmit.subscribe("overlayClicked", closeOverlay);
 
 eventEmit.subscribe("addProjectClicked", openProjectFormComponents);
