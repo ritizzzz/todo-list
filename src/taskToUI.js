@@ -8,9 +8,11 @@ function taskToUI(taskId, taskClass){
     todo.classList.add('todo');
     todo.setAttribute('data-id', taskId);
 
+
     let input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     input.classList.add('markDone');
+    input.classList.add(`markDone${taskId}`);
 
     todo.appendChild(input);
 

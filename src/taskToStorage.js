@@ -6,9 +6,9 @@ function taskToStorage(taskId, taskClass){
     const dueDate = document.querySelector('#dueDate').value;
     const priority = document.querySelector('#priority').value;
     const belongsTo = document.querySelector('.addTodo').getAttribute('data-belongsTo');
-    console.log(belongsTo);
+    const completed = false;
 
-    let newTask = taskClass(taskId, title, description, dueDate, priority, belongsTo);
+    let newTask = taskClass(taskId, title, description, dueDate, priority, belongsTo, completed);
     localStorage.setItem(taskId, JSON.stringify(newTask));
 
 

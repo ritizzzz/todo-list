@@ -7,14 +7,23 @@ function populateTask( taskArray){
         let description = taskArray[i]['taskDescription'];
         let dueDate = taskArray[i]['dueDate'];
         let priority = taskArray[i]['priority'];
+        let completed = taskArray[i]['completed'];
         
         let todo = document.createElement('div');
         todo.classList.add('todo');
         todo.setAttribute('data-id', taskId);
+
     
         let input = document.createElement('input');
         input.setAttribute('type', 'checkbox');
         input.classList.add('markDone');
+        input.classList.add(`markDone${taskId}`);
+
+        if(completed){
+            todo.classList.add('completed');
+            input.setAttribute('checked', true);
+        }
+
     
         todo.appendChild(input);
     

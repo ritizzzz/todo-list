@@ -12,6 +12,11 @@ function addListenerToTodo(id){
             openEdit(event);
             populateEdit(event);
         })
+        document.querySelector(`.markDone${id}`).addEventListener('click', ()=>{
+            event.target.parentNode.classList.toggle('completed');
+            toggleCompleted(event);
+        })
+
 
     }else{
         for(let i = 0; i<id.length; i++){
@@ -24,6 +29,10 @@ function addListenerToTodo(id){
             document.querySelector(`#editIcon${id[i]['taskId']}`).addEventListener('click', ()=>{
                 openEdit();
                 populateEdit(event);
+            })
+            document.querySelector(`.markDone${id[i]['taskId']}`).addEventListener('click', ()=>{
+                event.target.parentNode.classList.toggle('completed');
+                toggleCompleted(event);
             })
         }
     }
@@ -45,7 +54,7 @@ function toggleSlider(event){
 }
 
 function deleteTask(event){
-    let specificId = event.target.getAttribute('id').slice(-1);
+    const specificId = event.target.getAttribute('id').slice(-1);
     document.querySelector(`[data-id="${specificId}"]`).remove();
     localStorage.removeItem(specificId);
 }
@@ -70,4 +79,18 @@ function populateEdit(event){
     document.querySelector('.editTask').setAttribute('data-editto', specificId);
 }
 
+
+function toggleCompleted(event){
+    const specificId = event.target.getAttribute('class').slice(-1);
+    let task = JSON.parse(localStorage.getItem(specificId));
+    if(task['completed']){
+        task['completed'] = false;
+    }else{
+        task['completed'] = true;
+    }
+    localStorage.removeItem(specificId)
+    localStorage.setItem(specificId, JSON.stringify(task));
+
+    console.log(localStorage.getItem(specificId));
+}
 export {addListenerToTodo};
