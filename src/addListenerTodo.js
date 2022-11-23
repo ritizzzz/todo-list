@@ -15,6 +15,7 @@ function addListenerToTodo(id){
         document.querySelector(`.markDone${id}`).addEventListener('click', ()=>{
             event.target.parentNode.classList.toggle('completed');
             toggleCompleted(event);
+            closeSlider(event);
         })
 
 
@@ -33,10 +34,19 @@ function addListenerToTodo(id){
             document.querySelector(`.markDone${id[i]['taskId']}`).addEventListener('click', ()=>{
                 event.target.parentNode.classList.toggle('completed');
                 toggleCompleted(event);
+                closeSlider(event);
             })
         }
     }
+}
 
+function closeSlider(event){
+    let specificId = event.target.getAttribute('class').slice(-1);
+    const display = document.querySelector(`#todoSlider${specificId}`).style.display;
+    if(display !== 'none'){
+        document.querySelector(`#todoSlider${specificId}`).style.display = 'none';
+        document.querySelector(`#expandTodo${specificId}`).style.transform = 'rotate(0deg)';
+    }
 }
 
 function toggleSlider(event){
@@ -67,6 +77,7 @@ function openEdit(){
 
 function populateEdit(event){
     let specificId = event.target.getAttribute('id').slice(-1);
+    
     const task = JSON.parse(localStorage.getItem(specificId));
     document.querySelector('#titleEdit').value = task['taskTitle'];
     document.querySelector('#descriptionEdit').value = task['taskDescription'];
