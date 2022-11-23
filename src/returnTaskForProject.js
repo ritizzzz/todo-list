@@ -12,6 +12,15 @@ function returnTaskForProject(projectId){
             }
         }
     }
+
+    tasks.sort((a, b) => {
+        if(a.taskId > b.taskId){
+            return 1;
+        }else{
+            return -1;
+        }
+    })
+
     return tasks;
 }
 

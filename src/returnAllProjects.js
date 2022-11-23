@@ -9,6 +9,14 @@ function returnAllProjects(){
            }
         }
     }
+
+    projects.sort((a, b) => {
+        if(a.id > b.id){
+            return 1
+        }else{
+            return -1
+        }
+    })
     return projects;
 }
 
