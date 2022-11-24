@@ -51,7 +51,11 @@
     </nav>
     <div class="content">
         <div class="containerTodos">
-            <h3 class="projectNameDisplay">Project 1</h3>
+            <div class="projectHeader">
+                <h3 class="projectNameDisplay">Project 1</h3>
+                <img src="../src/icons/delete-empty.svg" alt="deleteProject" class="icon deleteProject">
+
+            </div>
             <div class="todos">
                 
             </div>
@@ -124,6 +128,15 @@
             
         <input type="button" value="Edit Task" class="editTask">
     </form>
+
+    <div class="confirmProjectDelete">
+        <h3>Are you sure?</h3>
+        <p>Deleting the project will delete all tasks associated with it and will not be recoverable.</p>
+        <div class="confirmationButtonClump">
+            <input type="button" value="YES" class="deleteProjectConfirmed">
+            <input type="button" value="NO" class="cancelDeleteProject">
+        </div>
+    </div>
     <footer>
         <p>Copyright © <script>document.write(" " + new Date().getFullYear() + " ")</script>Ritish Kandel</p>
 

@@ -22,6 +22,8 @@ import { addListenerToProject } from "./addListenerToProject";
 import { changeUiOnProjectClick } from "./changeUI";
 import {closeEditForm } from "./closeEditForm";
 import { modifyTaskStorage } from "./modifyTaskStorage";
+import { openConfirmDelete } from "./openConfirmDelete";
+import { closeConfirmDelete } from "./closeConfirmDelete";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -54,6 +56,7 @@ eventEmit.subscribe("newTaskButtonClicked", openForm);
 eventEmit.subscribe("overlayClicked", closeForm);
 eventEmit.subscribe("overlayClicked", closeEditForm);
 eventEmit.subscribe("overlayClicked", closeOverlay);
+eventEmit.subscribe("overlayClicked", closeConfirmDelete);
 
 eventEmit.subscribe("addProjectClicked", openProjectFormComponents);
 eventEmit.subscribe("closeProjectForm", closeProjectFormComponents);
@@ -71,6 +74,10 @@ eventEmit.subscribe("createTask", addListenerToTodo);
 eventEmit.subscribe("editTask", modifyTaskStorage);
 eventEmit.subscribe("editTask", closeOverlay);
 eventEmit.subscribe("editTask", closeEditForm);
+
+eventEmit.subscribe("openConfirmDeleteProject", openConfirmDelete);
+eventEmit.subscribe("openConfirmDeleteProject", openOverlay);
+
 
 eventEmit.subscribe("initProject", populateProject);
 
@@ -125,4 +132,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     addListenerToProject(returnAllProjects(), changeUiOnProjectClick, returnTaskForProject, populateTask, addListenerToTodo)
               
+})
+
+
+document.querySelector('.deleteProject').addEventListener('click', ()=>{
+    eventEmit.trigger('openConfirmDeleteProject');
+    console.log(document.querySelector('.addTodo').getAttribute('data-belongsTo'));
+})
+
+document.querySelector('.cancelDeleteProject').addEventListener('click', ()=>{
+    eventEmit.trigger('overlayClicked');
 })

@@ -92,7 +92,7 @@ function populateEdit(event){
 
 
 function toggleCompleted(event){
-    const specificId = event.target.getAttribute('class').slice(-1);
+    const specificId = event.target.parentNode.getAttribute('data-id')
     let task = JSON.parse(localStorage.getItem(specificId));
     if(task['completed']){
         task['completed'] = false;

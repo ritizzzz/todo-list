@@ -231,9 +231,10 @@ nav img{
 	background-color: black;
 	opacity: 0.5;
 	display: none;
+	z-index: 3;
 }
 
-.taskForm, .taskEditForm{
+.taskForm, .taskEditForm, .confirmProjectDelete{
 	position: absolute;
 	background-color: var(--header-card-background);
 	left: 0;
@@ -241,6 +242,7 @@ nav img{
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	z-index: 4;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -251,6 +253,7 @@ nav img{
 	width: max-content;
 	height: max-content;
 }
+
 
 
 
@@ -364,7 +367,31 @@ form input[type=button]:hover{
 }
 
 .completed .icon{
-
 	opacity: 0.7;
+}
 
+.projectHeader{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.projectNameDisplay{
+	align-self: center;
+}
+
+.confirmProjectDelete{
+	width: 300px;
+}
+.confirmationButtonClump{
+	display: flex;
+	gap: 5px;
+}
+
+.deleteProjectConfirmed{
+	flex: auto;
+}
+
+.cancelDeleteProject{
+	flex: auto;
 }
