@@ -41,7 +41,7 @@ function addListenerToTodo(id){
 }
 
 function closeSlider(event){
-    let specificId = event.target.getAttribute('class').slice(-1);
+    const specificId = event.target.parentNode.getAttribute('data-id');
     const display = document.querySelector(`#todoSlider${specificId}`).style.display;
     if(display !== 'none'){
         document.querySelector(`#todoSlider${specificId}`).style.display = 'none';
@@ -50,21 +50,21 @@ function closeSlider(event){
 }
 
 function toggleSlider(event){
-    let specificId = event.target.getAttribute('id').slice(-1);
-        event.target.style.transition = '0.3s';
-        const display = document.querySelector(`#todoSlider${specificId}`).style.display;
-        if(display === 'none'){
-            document.querySelector(`#todoSlider${specificId}`).style.display = 'grid';
-            event.target.style.transform = 'rotate(-180deg)';
-        }else{
-            document.querySelector(`#todoSlider${specificId}`).style.display = 'none';
-            event.target.style.transform = 'rotate(0deg)';
-        }
+    const specificId = event.target.parentNode.getAttribute('data-id');
+    event.target.style.transition = '0.3s';
+    const display = document.querySelector(`#todoSlider${specificId}`).style.display;
+    if(display === 'none'){
+        document.querySelector(`#todoSlider${specificId}`).style.display = 'grid';
+        event.target.style.transform = 'rotate(-180deg)';
+    }else{
+        document.querySelector(`#todoSlider${specificId}`).style.display = 'none';
+        event.target.style.transform = 'rotate(0deg)';
+    }
 
 }
 
 function deleteTask(event){
-    const specificId = event.target.getAttribute('id').slice(-1);
+    const specificId = event.target.parentNode.getAttribute('data-id');
     document.querySelector(`[data-id="${specificId}"]`).remove();
     localStorage.removeItem(specificId);
 }
@@ -76,8 +76,8 @@ function openEdit(){
 }
 
 function populateEdit(event){
-    let specificId = event.target.getAttribute('id').slice(-1);
-    
+    const specificId = event.target.parentNode.getAttribute('data-id')
+    console.log(specificId);
     const task = JSON.parse(localStorage.getItem(specificId));
     document.querySelector('#titleEdit').value = task['taskTitle'];
     document.querySelector('#descriptionEdit').value = task['taskDescription'];
