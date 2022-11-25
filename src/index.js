@@ -1,29 +1,29 @@
 import "./styles.css";
-import { openOverlay } from "./openOverlay";
-import { openForm } from "./openForm";
-import { closeForm } from "./closeForm";
-import { closeOverlay } from "./closeOverlay";
-import {openProjectFormComponents} from "./openProjectForm"
-import { closeProjectFormComponents } from "./closeProjectForm";
-import { addProjectToUI } from "./newProjectUI";
-import { taskClass } from "./taskClass";
+import { openOverlay } from "./ui/openOverlay";
+import { openForm } from "./ui/openForm";
+import { closeForm } from "./ui/closeForm";
+import { closeOverlay } from "./ui/closeOverlay";
+import {openProjectFormComponents} from "./ui/openProjectForm"
+import { closeProjectFormComponents } from "./ui/closeProjectForm";
+import { addProjectToUI } from "./ui/newProjectUI";
+import { taskClass } from "./classes/taskClass";
 import { taskToStorage } from "./taskToStorage";
-import { taskToUI } from "./taskToUI";
-import { projectClass } from "./projectClass";
-import {addListenerToTodo} from "./addListenerTodo";
-import {projectToStorage} from "./projectToStorage";
-import { assignTaskId } from "./assignTaskId";
-import { returnTaskForProject } from "./returnTaskForProject";
-import { populateTask } from "./populateTask";
-import { assignProjectId } from "./assignProjectId";
-import { returnAllProjects } from "./returnAllProjects";
-import { populateProject } from "./populateProject";
-import { addListenerToProject } from "./addListenerToProject";
-import { changeUiOnProjectClick } from "./changeUI";
-import {closeEditForm } from "./closeEditForm";
-import { modifyTaskStorage } from "./modifyTaskStorage";
-import { openConfirmDelete } from "./openConfirmDelete";
-import { closeConfirmDelete } from "./closeConfirmDelete";
+import { taskToUI } from "./ui/taskToUI";
+import { projectClass } from "./classes/projectClass";
+import {addListenerToTodo} from "./listeners/addListenerTodo";
+import {projectToStorage} from "./backend/projectToStorage";
+import { assignTaskId } from "./backend/assignTaskId";
+import { returnTaskForProject } from "./mediator/returnTaskForProject";
+import { populateTask } from "./ui/populateTask";
+import { assignProjectId } from "./backend/assignProjectId";
+import { returnAllProjects } from "./mediator/returnAllProjects";
+import { populateProject } from "./ui/populateProject";
+import { addListenerToProject } from "./listeners/addListenerToProject";
+import { changeUiOnProjectClick } from "./ui/changeUI";
+import {closeEditForm } from "./ui/closeEditForm";
+import { modifyTaskStorage } from "./backend/modifyTaskStorage";
+import { openConfirmDelete } from "./ui/openConfirmDelete";
+import { closeConfirmDelete } from "./ui/closeConfirmDelete";
 
 const  eventEmit = (function(){
     let _events = {};
