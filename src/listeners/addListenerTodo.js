@@ -67,6 +67,12 @@ function deleteTask(event){
     const specificId = event.target.parentNode.getAttribute('data-id');
     document.querySelector(`[data-id="${specificId}"]`).remove();
     localStorage.removeItem(specificId);
+    const projectId = document.querySelector('.addTodo').getAttribute('data-belongsto');
+    let project = JSON.parse(localStorage.getItem(`project${projectId}`));    
+    project['taskArray'].splice(project['taskArray'].indexOf(specificId), 1);
+    localStorage.removeItem(`project${projectId}`);
+    localStorage.setItem(`project${projectId}`, JSON.stringify(project));
+    
 }
 
 function openEdit(){
@@ -101,7 +107,5 @@ function toggleCompleted(event){
     }
     localStorage.removeItem(specificId)
     localStorage.setItem(specificId, JSON.stringify(task));
-
-    console.log(localStorage.getItem(specificId));
 }
 export {addListenerToTodo};

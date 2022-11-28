@@ -9,6 +9,13 @@ function taskToStorage(taskId, taskClass){
     const completed = false;
 
     let newTask = taskClass(taskId, title, description, dueDate, priority, belongsTo, completed);
+
+    let project = JSON.parse(localStorage.getItem(`project${belongsTo}`));
+    project['taskArray'].push(taskId);
+    localStorage.removeItem(`project${belongsTo}`);
+    localStorage.setItem(`project${belongsTo}`, JSON.stringify(project));
+
+
     localStorage.setItem(taskId, JSON.stringify(newTask));
 
 

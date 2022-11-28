@@ -1,5 +1,6 @@
 
 function populateProject(projectArray){
+    document.querySelectorAll('.projectCard').forEach(card => card.remove());
     for(let i = 0; i<projectArray.length; i++){
         let projectId = projectArray[i]['id'];
         let projectName = projectArray[i]['projectName'];

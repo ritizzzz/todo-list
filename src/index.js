@@ -7,7 +7,7 @@ import {openProjectFormComponents} from "./ui/openProjectForm"
 import { closeProjectFormComponents } from "./ui/closeProjectForm";
 import { addProjectToUI } from "./ui/newProjectUI";
 import { taskClass } from "./classes/taskClass";
-import { taskToStorage } from "./taskToStorage";
+import { taskToStorage } from "./backend/taskToStorage";
 import { taskToUI } from "./ui/taskToUI";
 import { projectClass } from "./classes/projectClass";
 import {addListenerToTodo} from "./listeners/addListenerTodo";
@@ -24,6 +24,7 @@ import {closeEditForm } from "./ui/closeEditForm";
 import { modifyTaskStorage } from "./backend/modifyTaskStorage";
 import { openConfirmDelete } from "./ui/openConfirmDelete";
 import { closeConfirmDelete } from "./ui/closeConfirmDelete";
+import { deleteProject } from "./backend/deleteProject";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -142,4 +143,18 @@ document.querySelector('.deleteProject').addEventListener('click', ()=>{
 
 document.querySelector('.cancelDeleteProject').addEventListener('click', ()=>{
     eventEmit.trigger('overlayClicked');
+})
+
+document.querySelector('.deleteProjectConfirmed').addEventListener('click', ()=>{
+    eventEmit.trigger('overlayClicked');
+    if(returnAllProjects().length > 1){
+        deleteProject();
+        document.querySelector('.projectNameDisplay').innerText = returnAllProjects()[0]['projectName'];
+        document.querySelector('.addTodo').setAttribute('data-belongsTo', returnAllProjects()[0]['id']);
+        populateTask(returnTaskForProject(parseInt(returnAllProjects()[0]['id'])));
+        addListenerToTodo(returnTaskForProject(parseInt(returnAllProjects()[0]['id'])));
+        populateProject(returnAllProjects());
+        addListenerToProject(returnAllProjects(), changeUiOnProjectClick, returnTaskForProject, populateTask, addListenerToTodo)
+    }
+
 })
