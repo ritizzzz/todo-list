@@ -1,9 +1,14 @@
+import {format} from 'date-fns';
+
 function taskToUI(taskId, taskClass){
+
     const title = document.querySelector('#title').value;
     const description = document.querySelector('#description').value;
-    const dueDate = document.querySelector('#dueDate').value;
+    let dueDate = document.querySelector('#dueDate').value;
     const priority = document.querySelector('#priority').value;
-    
+
+    dueDate = format(new Date(dueDate), "do MMMMMM");
+
     let todo = document.createElement('div');
     todo.classList.add('todo');
     todo.setAttribute('data-id', taskId);

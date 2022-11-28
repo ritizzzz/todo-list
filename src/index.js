@@ -25,7 +25,6 @@ import { modifyTaskStorage } from "./backend/modifyTaskStorage";
 import { openConfirmDelete } from "./ui/openConfirmDelete";
 import { closeConfirmDelete } from "./ui/closeConfirmDelete";
 import { deleteProject } from "./backend/deleteProject";
-
 const  eventEmit = (function(){
     let _events = {};
     

@@ -1,6 +1,7 @@
+import {format} from 'date-fns';
+
 function populateTask( taskArray){
     document.querySelector('.todos').innerHTML = '';
-    console.log(taskArray);
     for(let i = 0; i<taskArray.length; i++){
         let taskId = taskArray[i]['taskId'];
         let title = taskArray[i]['taskTitle'];
@@ -8,6 +9,8 @@ function populateTask( taskArray){
         let dueDate = taskArray[i]['dueDate'];
         let priority = taskArray[i]['priority'];
         let completed = taskArray[i]['completed'];
+
+        dueDate = format(new Date(dueDate), "do MMMMMM");
         
         let todo = document.createElement('div');
         todo.classList.add('todo');
