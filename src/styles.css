@@ -395,3 +395,8 @@ form input[type=button]:hover{
 .cancelDeleteProject{
 	flex: auto;
 }
+
+textarea{
+	max-width: 100%;
+	max-height: 300px;
+}
