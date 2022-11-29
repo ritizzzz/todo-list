@@ -72,18 +72,22 @@
         <h3>Add new task</h3>
          <div class="title">
             <label for="title">Title for task:</label>
-            <input type="text" id="title" name="title" required>
+            <input type="text" id="title" name="title" class="addInputField">
+            <p class="titleError error">title insufficient(5-40characters)</p>
         </div>    
             
         <div class="description">
             <label for="description">description:</label>
-            <textarea type="textbox" id="description" name="title" cols="30" rows="10"></textarea>
+            <textarea type="textbox" id="description" name="title" cols="30" rows="10" class="addInputField"></textarea>
+            <p class="descriptionError error">description insufficient(30-200charactesr) </p>
+
         </div> 
             
 
         <div class="dueDate">
             <label for="dueDate">Due date:</label>
-            <input type="date" id="dueDate" name="dueDate" required>
+            <input type="date" id="dueDate" name="dueDate" class="addInputField">
+            <p class="dueDateError error">date invalid</p>
         </div>
 
         <div class="priority">
@@ -96,24 +100,30 @@
 
         </div>
             
-        <input type="button" value="Add Task" class="addTask">
+        <input type="button" value="Add Task" class="addTask" disabled>
     </form>
     <form action="#" class="taskEditForm">
         <h3>Edit task</h3>
          <div class="titleEdit">
             <label for="titleEdit">Title for task:</label>
-            <input type="text" id="titleEdit" name="titleEdit" required>
+            <input type="text" id="titleEdit" name="titleEdit" class="editInputField">
+            <p class="titleErrorEdit error">title insufficient(5-40characters)</p>
+
         </div>    
             
         <div class="descriptionEdit">
             <label for="descriptionEdit">description:</label>
-            <textarea type="textbox" id="descriptionEdit" name="descriptionEdit"></textarea>
+            <textarea type="textbox" id="descriptionEdit" name="descriptionEdit" cols="30" rows="10" class="editInputField" ></textarea>
+            <p class="descriptionErrorEdit error">description insufficient(30-200charactesr) </p>
+
         </div> 
             
 
         <div class="dueDateEdit">
             <label for="dueDateEdit">Due date:</label>
-            <input type="date" id="dueDateEdit" name="dueDateEdit" required>
+            <input type="date" id="dueDateEdit" name="dueDateEdit" class="editInputField" >
+            <p class="dueDateErrorEdit error">date invalid</p>
+
         </div>
 
         <div class="priorityEdit">
@@ -126,7 +136,7 @@
 
         </div>
             
-        <input type="button" value="Edit Task" class="editTask">
+        <input type="button" value="Edit Task" class="editTask" disabled>
     </form>
 
     <div class="confirmProjectDelete">

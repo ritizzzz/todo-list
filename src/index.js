@@ -25,6 +25,7 @@ import { modifyTaskStorage } from "./backend/modifyTaskStorage";
 import { openConfirmDelete } from "./ui/openConfirmDelete";
 import { closeConfirmDelete } from "./ui/closeConfirmDelete";
 import { deleteProject } from "./backend/deleteProject";
+import { validTaskInput } from "./validate/taskFormValidation";
 const  eventEmit = (function(){
     let _events = {};
     
@@ -155,5 +156,15 @@ document.querySelector('.deleteProjectConfirmed').addEventListener('click', ()=>
         populateProject(returnAllProjects());
         addListenerToProject(returnAllProjects(), changeUiOnProjectClick, returnTaskForProject, populateTask, addListenerToTodo)
     }
+})
 
+document.querySelectorAll('.addInputField').forEach(field => {
+    field.addEventListener('keyup', ()=>{
+        console.log(validTaskInput(event));
+        if(validTaskInput(event)){
+            document.querySelector('.addTask').disabled = false;
+        }else{
+            document.querySelector('.addTask').disabled = true;
+        }
+    })
 })

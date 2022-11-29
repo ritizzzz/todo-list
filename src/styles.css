@@ -400,3 +400,21 @@ textarea{
 	max-width: 100%;
 	max-height: 300px;
 }
+
+.error{
+	font-weight: bold;
+	color: red;
+	display: none;
+}
+
+.errorActive{
+	display: block;
+}
+
+.error::before{
+	content: '*';
+}
+
+input[type=button]:disabled:hover{
+	cursor: not-allowed;
+}
