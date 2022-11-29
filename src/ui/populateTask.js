@@ -2,6 +2,10 @@ import {format} from 'date-fns';
 
 function populateTask( taskArray){
     document.querySelector('.todos').innerHTML = '';
+    // console.table(intervalToDuration({
+    //     start: new Date("2022-10-29"), 
+    //     end: new Date("2022-12-01")
+    //     }));
     for(let i = 0; i<taskArray.length; i++){
         let taskId = taskArray[i]['taskId'];
         let title = taskArray[i]['taskTitle'];

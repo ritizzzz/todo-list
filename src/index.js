@@ -28,6 +28,7 @@ import { deleteProject } from "./backend/deleteProject";
 import { validTaskInput } from "./validate/taskFormValidation";
 import { editTaskValidation } from "./validate/editTaskValidation";
 import { projectNameValidation } from "./validate/projectNameValidation";
+import { returnTaskForWeek } from "./mediator/returnTaskForWeek";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -188,3 +189,5 @@ document.querySelector('.projectName').addEventListener('keyup', ()=>{
         document.querySelector('.addProject').disabled = true;
     }
 })
+
+returnTaskForWeek();
