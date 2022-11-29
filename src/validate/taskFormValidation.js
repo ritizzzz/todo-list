@@ -5,7 +5,7 @@ function validTaskInput(event){
         dueDate:  /^.{1,}$/ 
     }
     const id = event.target.getAttribute('id');
-    let valid;
+    let valid = true;
 
     const values = {
         title: document.querySelector('#title').value,
@@ -21,8 +21,6 @@ function validTaskInput(event){
     Object.keys(patterns).forEach(key => {
         if(!patterns[key].test(values[key])){
             valid =  false;
-        }else{
-            valid =  true;
         }
     })
     return valid;

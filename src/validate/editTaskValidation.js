@@ -5,7 +5,7 @@ function editTaskValidation(event){
         dueDateEdit:  /^.{1,}$/ 
     }
     const id = event.target.getAttribute('id');
-    let valid;
+    let valid = true;
 
     const values = {
         titleEdit: document.querySelector('#titleEdit').value,
@@ -22,10 +22,9 @@ function editTaskValidation(event){
     Object.keys(patterns).forEach(key => {
         if(!patterns[key].test(values[key])){
             valid =  false;
-        }else{
-            valid =  true;
         }
     })
+    console.log(valid);
     return valid;
 }
 
