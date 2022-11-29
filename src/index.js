@@ -26,6 +26,7 @@ import { openConfirmDelete } from "./ui/openConfirmDelete";
 import { closeConfirmDelete } from "./ui/closeConfirmDelete";
 import { deleteProject } from "./backend/deleteProject";
 import { validTaskInput } from "./validate/taskFormValidation";
+import { editTaskValidation } from "./validate/editTaskValidation";
 const  eventEmit = (function(){
     let _events = {};
     
@@ -160,11 +161,20 @@ document.querySelector('.deleteProjectConfirmed').addEventListener('click', ()=>
 
 document.querySelectorAll('.addInputField').forEach(field => {
     field.addEventListener('keyup', ()=>{
-        console.log(validTaskInput(event));
         if(validTaskInput(event)){
             document.querySelector('.addTask').disabled = false;
         }else{
             document.querySelector('.addTask').disabled = true;
+        }
+    })
+})
+
+document.querySelectorAll('.editInputField').forEach(field => {
+    field.addEventListener('keyup', ()=>{
+        if(editTaskValidation(event)){
+            document.querySelector('.editTask').disabled = false;
+        }else{
+            document.querySelector('.editTask').disabled = true;
         }
     })
 })

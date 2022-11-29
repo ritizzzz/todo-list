@@ -1,17 +1,18 @@
-function validTaskInput(event){
+function editTaskValidation(event){
     const patterns = {
-        title: /^.{5,40}$/,
-        description: /^.{30,200}$/,
-        dueDate:  /^.{1,}$/ 
+        titleEdit: /^.{5,40}$/,
+        descriptionEdit: /^.{30,200}$/,
+        dueDateEdit:  /^.{1,}$/ 
     }
     const id = event.target.getAttribute('id');
     let valid;
 
     const values = {
-        title: document.querySelector('#title').value,
-        description: document.querySelector('#description').value,
-        dueDate: document.querySelector('#dueDate').value
+        titleEdit: document.querySelector('#titleEdit').value,
+        descriptionEdit: document.querySelector('#descriptionEdit').value,
+        dueDateEdit: document.querySelector('#dueDateEdit').value
     }
+    
     if(!patterns[id].test(event.target.value)){
         document.querySelector(`.${id}Error`).classList.add('errorActive')
     }else{
@@ -26,7 +27,6 @@ function validTaskInput(event){
         }
     })
     return valid;
-    
 }
 
-export {validTaskInput};
+export {editTaskValidation};
