@@ -27,6 +27,8 @@ import { closeConfirmDelete } from "./ui/closeConfirmDelete";
 import { deleteProject } from "./backend/deleteProject";
 import { validTaskInput } from "./validate/taskFormValidation";
 import { editTaskValidation } from "./validate/editTaskValidation";
+import { projectNameValidation } from "./validate/projectNameValidation";
+
 const  eventEmit = (function(){
     let _events = {};
     
@@ -177,4 +179,12 @@ document.querySelectorAll('.editInputField').forEach(field => {
             document.querySelector('.editTask').disabled = true;
         }
     })
+})
+
+document.querySelector('.projectName').addEventListener('keyup', ()=>{
+    if(projectNameValidation(event)){
+        document.querySelector('.addProject').disabled = false;
+    }else{
+        document.querySelector('.addProject').disabled = true;
+    }
 })
