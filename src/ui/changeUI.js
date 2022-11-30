@@ -1,6 +1,9 @@
 function changeUiOnProjectClick(event){
+
     let projectId;
     let projectName; 
+    document.querySelector('.deleteProject').style.display = 'block';
+    document.querySelector('.addTodo').style.display = 'flex';
    
     if(event.target.tagName === 'DIV'){
         projectId = event.target.getAttribute('data-projectid');

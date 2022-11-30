@@ -29,6 +29,8 @@ import { validTaskInput } from "./validate/taskFormValidation";
 import { editTaskValidation } from "./validate/editTaskValidation";
 import { projectNameValidation } from "./validate/projectNameValidation";
 import { returnTaskForWeek } from "./mediator/returnTaskForWeek";
+import { returnTaskForMonth } from "./mediator/returnTaskForMonth";
+import { switchToFilterView } from "./ui/switchToFIlterView";
 
 const  eventEmit = (function(){
     let _events = {};
@@ -190,4 +192,16 @@ document.querySelector('.projectName').addEventListener('keyup', ()=>{
     }
 })
 
-returnTaskForWeek();
+
+
+document.querySelector('.thisWeek').addEventListener('click', ()=>{
+    switchToFilterView(event);
+    populateTask(returnTaskForWeek());
+    addListenerToTodo(returnTaskForWeek());
+})
+
+document.querySelector('.thisMonth').addEventListener('click', ()=>{
+    switchToFilterView(event);
+    populateTask(returnTaskForMonth());
+    addListenerToTodo(returnTaskForMonth());    
+})
